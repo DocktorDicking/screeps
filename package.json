@@ -1,10 +1,19 @@
 {
-  "name": "${PROJECT_NAME}",
+  "name": "screeps",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Screeps AI",
+  "main": "src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/",
+    "build": "rollup -c"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/screeps": "^3.3.8",
+    "eslint": "^8.57.1",
+    "rollup": "^2.79.2"
+  }
 }
