@@ -20,4 +20,5 @@ Currently implementing basic colony management features. More details will be ad
 
 ## 🚀 Installation
 
-1. Clone the repository
+1. Clone or download the repository.
+2. Deploy scripts to your screeps game 
