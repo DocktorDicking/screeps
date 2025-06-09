@@ -12,7 +12,7 @@ module.exports = {
     // Creep Population Settings
     CREEP_POPULATION: {
         harvester: {
-            minCount: 2,
+            minCount: 4,
             priority: 1 // Lower number = higher priority
         },
         upgrader: {
