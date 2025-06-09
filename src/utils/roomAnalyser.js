@@ -18,17 +18,14 @@ module.exports = {
 
     dangerScan() {},
 
-    /**
-     * Run this every like 10 ticks to save a bit on scanning.
-     */
     scanPopulation() {
         if (!Memory.hasOwnProperty('creepPopulation') || Game.time % 10 !== 0) {
             let creepPopulation = {};
             const creeps = room.find(FIND_MY_CREEPS);
 
-            forEach(creeps, creep => {
+            creeps.forEach(creep => {
                 creepPopulation[creep.memory.role] ? creepPopulation[creep.memory.role]++ : creepPopulation[creep.memory.role] = 1;
-            });
+            })
 
             Memory.creepPopulation = creepPopulation;
         }
