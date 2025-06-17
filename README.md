@@ -11,6 +11,7 @@ An autonomous colony management bot for the Screeps game. This bot automates var
 > ⚠️ Work in Progress
 
 Currently implementing basic colony management features. More details will be added as features are developed.
+This project will focus on single room colony management, multiroom management will be implemented in a later stage of development.
 
 ## 📋 Prerequisites
 

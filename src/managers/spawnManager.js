@@ -2,12 +2,12 @@ const roomAnalyzer = require('utils/roomAnalyser');
 const config = require("../config");
 
 module.exports = {
-    run() {
-        const priorityRole = this.getPriorityRole();
+    run(room) {
+        const priorityRole = this.getPriorityRole(room);
 
         if (priorityRole) {
-            const spawn = Memory.spawn ? Game.getObjectById(Memory.spawn) : roomAnalyzer.spawnScan();
-            spawn.spawnCreep(this.getBodyType(), priorityRole + Game.time, {
+            const spawn = Memory.spawn ? Game.getObjectById(Memory.spawn) : roomAnalyzer.spawnScan(room);
+            spawn.spawnCreep(this.getBodyType(priorityRole, room), priorityRole + Game.time, {
                 memory: {
                     role: priorityRole
                 }
@@ -15,8 +15,8 @@ module.exports = {
         }
     },
 
-    getPriorityRole() {
-        const population = roomAnalyzer.scanPopulation();
+    getPriorityRole(room) {
+        const population = roomAnalyzer.scanPopulation(room);
         let prioRole;
         // Return priority based on the population, check mincount and population
 
@@ -31,7 +31,7 @@ module.exports = {
         return prioRole;
     },
 
-    getBodyType(role) {
+    getBodyType(role, room) {
         const roomEnergy = room.storage.store.energy;
         const energyLevel = (() => {
             if (roomEnergy >= (config.ROOM_SETTINGS.MINIMUM_ENERGY + config.CREEP_CONFIGS[role].basic.cost)) {

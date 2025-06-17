@@ -3,7 +3,7 @@ module.exports = {
     /**
      * Returns the first spawn it can find.
      */
-    spawnScan() {
+    spawnScan(room) {
         const spawns = room.find(FIND_MY_SPAWNS);
         if (spawns.length > 0) {
             Memory.spawn = spawns[0].id;
@@ -14,11 +14,13 @@ module.exports = {
     },
 
 
-    resourcesScan() {},
+    resourcesScan(room) {
+
+    },
 
     dangerScan() {},
 
-    scanPopulation() {
+    scanPopulation(room) {
         if (!Memory.hasOwnProperty('creepPopulation') || Game.time % 10 !== 0) {
             let creepPopulation = {};
             const creeps = room.find(FIND_MY_CREEPS);
